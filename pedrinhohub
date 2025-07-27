@@ -101,22 +101,21 @@ Tabs.Main:AddButton({
 })
 
 
-
+-- Botão para coletar Orb Amarela (Yellow Orb) infinitamente
 Tabs.Main:AddButton({
-    Title = "Coletar Gem Infinitamente",
-    Description = "Coleta automática da Gem na City",
+    Title = "Coletar Orb Amarela (Yellow)",
+    Description = "Coleta automática da Yellow Orb na City",
     Callback = function()
         task.spawn(function()
             while true do
                 local args = {
                     "collectOrb",
-                    "Gem",
+                    "Yellow Orb",
                     "City"
                 }
                 game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("orbEvent"):FireServer(unpack(args))
-                task.wait(0.5) -- Delay entre coletas
+                task.wait(0.5) -- Delay entre coletas para evitar sobrecarga
             end
         end)
     end
-
-
+})
